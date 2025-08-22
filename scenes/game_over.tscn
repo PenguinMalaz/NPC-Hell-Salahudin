@@ -1,0 +1,153 @@
+[gd_scene load_steps=15 format=3 uid="uid://cury3cpqulgmv"]
+
+[ext_resource type="Script" uid="uid://d3uc1782tdjk8" path="res://scripts/game_over.gd" id="1_racf3"]
+[ext_resource type="Texture2D" uid="uid://cmjc5my1gajou" path="res://assets/images/icon.png" id="2_7m3ot"]
+[ext_resource type="FontFile" uid="uid://cytygovujt8fn" path="res://assets/fonts/font.ttf" id="3_v3hpu"]
+[ext_resource type="Theme" uid="uid://dqnakghdtcoma" path="res://themes/menu.tres" id="4_irg28"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqti8"]
+atlas = ExtResource("2_7m3ot")
+region = Rect2(176, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clap0"]
+atlas = ExtResource("2_7m3ot")
+region = Rect2(192, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_anw2s"]
+atlas = ExtResource("2_7m3ot")
+region = Rect2(208, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lu4y7"]
+atlas = ExtResource("2_7m3ot")
+region = Rect2(224, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkp8b"]
+atlas = ExtResource("2_7m3ot")
+region = Rect2(240, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mvgb"]
+atlas = ExtResource("2_7m3ot")
+region = Rect2(256, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_666yw"]
+atlas = ExtResource("2_7m3ot")
+region = Rect2(272, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d67jj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqti8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clap0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_anw2s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lu4y7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkp8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mvgb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_666yw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqti8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqti8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqti8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqti8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqti8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqti8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4qtur"]
+font = ExtResource("3_v3hpu")
+font_size = 30
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3mx23"]
+font = ExtResource("3_v3hpu")
+font_size = 55
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="game_over" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_racf3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 483.0
+offset_bottom = 728.0
+color = Color(0, 0, 0, 0.486275)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
+texture_filter = 1
+position = Vector2(352.5, 332)
+scale = Vector2(2.4375, 2.4375)
+sprite_frames = SubResource("SpriteFrames_d67jj")
+
+[node name="hs" type="Label" parent="CanvasLayer"]
+offset_left = 380.0
+offset_top = 320.0
+offset_right = 402.0
+offset_bottom = 350.0
+text = "0"
+label_settings = SubResource("LabelSettings_4qtur")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 64.0
+offset_top = 68.0
+offset_right = 424.0
+offset_bottom = 124.0
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_3mx23")
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+offset_left = 68.0
+offset_top = 320.0
+offset_right = 286.0
+offset_bottom = 350.0
+text = "HIGH SCORE"
+label_settings = SubResource("LabelSettings_4qtur")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+offset_left = 106.0
+offset_top = 569.0
+offset_right = 390.0
+offset_bottom = 659.0
+theme = ExtResource("4_irg28")
+
+[node name="retry" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "ULANGI"
+
+[node name="main_menu" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "KEMBALI"
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/main_menu" to="." method="_on_main_menu_pressed"]

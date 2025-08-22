@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://6723wt462oie"]
+
+[ext_resource type="Script" uid="uid://pfau3ffwuwil" path="res://assets/audio/audio_stream_player_2d.gd" id="1_w77v2"]
+[ext_resource type="AudioStream" uid="uid://d0q2ixmu3il1l" path="res://assets/audio/bgm.mp3" id="2_gwwuj"]
+[ext_resource type="AudioStream" uid="uid://bmib3err4njxf" path="res://assets/audio/gameover.mp3" id="3_s5epv"]
+[ext_resource type="AudioStream" uid="uid://cecsfuk2g3wum" path="res://assets/audio/hurt.mp3" id="4_diyd4"]
+[ext_resource type="AudioStream" uid="uid://cbjdi33fo2wrk" path="res://assets/audio/pickup.mp3" id="5_55kjb"]
+
+[node name="AudioStreamPlayer2D" type="Node2D"]
+script = ExtResource("1_w77v2")
+
+[node name="Bgm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_gwwuj")
+bus = &"Music"
+
+[node name="Gameover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_s5epv")
+bus = &"Music"
+
+[node name="Hurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_diyd4")
+bus = &"SFX"
+
+[node name="Pickup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_55kjb")
+bus = &"SFX"
